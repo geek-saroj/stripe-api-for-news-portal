@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "breking_news",
+  "info": {
+    "singularName": "breking-new",
+    "pluralName": "breking-news",
+    "displayName": "breking news"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "discription": {
+      "type": "richtext"
+    },
+    "menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
+    }
+  }
+}
