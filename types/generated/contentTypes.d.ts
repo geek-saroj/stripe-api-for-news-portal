@@ -923,6 +923,73 @@ export interface ApiPopularPopular extends Schema.CollectionType {
   };
 }
 
+export interface ApiPradeshBannerPradeshBanner extends Schema.CollectionType {
+  collectionName: 'pradesh_banners';
+  info: {
+    singularName: 'pradesh-banner';
+    pluralName: 'pradesh-banners';
+    displayName: 'pradesh banner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+    discription: Attribute.RichText;
+    number: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pradesh-banner.pradesh-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pradesh-banner.pradesh-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPradeshNewPradeshNew extends Schema.CollectionType {
+  collectionName: 'pradesh_news';
+  info: {
+    singularName: 'pradesh-new';
+    pluralName: 'pradesh-news';
+    displayName: 'pradesh news';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    images: Attribute.Media;
+    discription: Attribute.RichText;
+    slug: Attribute.UID;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pradesh-new.pradesh-new',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pradesh-new.pradesh-new',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -945,6 +1012,8 @@ declare module '@strapi/types' {
       'api::fresh-new.fresh-new': ApiFreshNewFreshNew;
       'api::menu.menu': ApiMenuMenu;
       'api::popular.popular': ApiPopularPopular;
+      'api::pradesh-banner.pradesh-banner': ApiPradeshBannerPradeshBanner;
+      'api::pradesh-new.pradesh-new': ApiPradeshNewPradeshNew;
     }
   }
 }
